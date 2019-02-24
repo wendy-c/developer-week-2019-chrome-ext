@@ -52,13 +52,12 @@ chrome.tabs.onUpdated.addListener(function() {
     } 
     
     if (tab[0].url.indexOf("chrome://") === -1) {
-      console.log("falling in here")
+      
         // check if URL is on white list
         const isOnList = whiteList.reduce((acc, item) => {
             return acc || item.url === tab[0].url;
           }, false);
 
-          console.log("isOnList", isOnList)
         if (!isOnList) {
           
           chrome.tabs.executeScript({

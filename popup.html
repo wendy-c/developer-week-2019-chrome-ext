@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        width: 350px;
+        height: 250px;
+        margin: auto;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #282c34;
+        font-weight: 700;
+        font-size: 18px;
+      }
+
+      button {
+        margin: 0 auto;
+        border-radius: 8px;
+        padding: 10px;
+        outline: none;
+        font-size: 20px;
+        color: #fff;
+        background-color: #F2B824;
+        border: 5px solid #fff;
+      }
+
+      .whitelist {
+        color: white;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <script src="popup.js"></script>
+  <body>
+    <a href="http://localhost:3000" target="_blank">
+      <button>Login to RoboSitter</button>
+    </a>
+    <a class="whitelist" href="http://localhost:3000/whitelist">View White List</a>
+  </body>
+</html>

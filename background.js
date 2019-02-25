@@ -17,7 +17,12 @@ chrome.runtime.onInstalled.addListener(function() {
   })
   chrome.tabs.query({active: true, currentWindow: true}, tab => {
     
-    if (!tab[0] || tab[0].url.indexOf("localhost") > -1 || tab[0].url.indexOf("github") > -1) {
+    const allowLocalHost = tab[0].url.indexOf("localhost") > -1;
+    const allowGitHub = tab[0].url.indexOf("github") > -1;
+    const allowDocusign = tab[0].url.indexOf("docusign") > -1;
+    // permission value should be coming from server when db is set up
+    const isAdminUser = false;
+    if (!tab[0] || allowLocalHost || allowGitHub || allowDocusign || isAdminUser) {
       return;
     } 
 
@@ -46,8 +51,12 @@ chrome.runtime.onInstalled.addListener(function() {
 chrome.tabs.onUpdated.addListener(function() {
   
   chrome.tabs.query({active: true, currentWindow: true}, function(tab) {
-
-    if (!tab[0] || tab[0].url.indexOf("localhost") > -1 || tab[0].url.indexOf("github") > -1) {
+    const allowLocalHost = tab[0].url.indexOf("localhost") > -1;
+    const allowGitHub = tab[0].url.indexOf("github") > -1;
+    const allowDocusign = tab[0].url.indexOf("docusign") > -1;
+    // permission value should be coming from server when db is set up
+    const isAdminUser = false;
+    if (!tab[0] || allowLocalHost || allowGitHub || allowDocusign || isAdminUser) {
       return;
     } 
     
